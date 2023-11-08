@@ -9,8 +9,14 @@ public class PlayerMovement : MonoBehaviour
     Vector2 rawInput;
     [SerializeField] float moveSpeed = 5f;
     [SerializeField] float jumpStrength = 5f;
+    [SerializeField] float jumpPressedRememberTime = 0.2f;
+    [SerializeField] float isGroundedRememberTime = 0.2f;
+    float isGroundedRemember = 0f;
+    float jumpPressedRemember = 0f;
     [SerializeField] LayerMask jumpableLayers;
     BoxCollider2D feetCollider;
+    [SerializeField] Transform gun;
+    [SerializeField] GameObject bullet;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,7 +26,10 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Timers();
         Move();
+        Jump();
+        isGrounded();
     }
 
     void Move()
@@ -28,23 +37,78 @@ public class PlayerMovement : MonoBehaviour
         float speed = rawInput.x * moveSpeed;
         rb.velocity = new Vector2(speed, rb.velocityY);
     }
+    void Timers()
+    {
+        jumpPressedRemember -= Time.deltaTime;
+        isGroundedRemember -= Time.deltaTime;
+    }
+    void Jump()
+    {
+        if ((jumpPressedRemember > 0) && (isGroundedRemember > 0))
+        {
+            jumpPressedRemember = 0;
+            isGroundedRemember = 0;
+            rb.velocity = new Vector2(rb.velocityX, jumpStrength);
+        }
+    }
+    void isGrounded()
+    {
+        if (feetCollider.IsTouchingLayers(jumpableLayers))
+        {
+            isGroundedRemember = isGroundedRememberTime;
+        }
+    }
+
+    void OnJump(InputValue value)
+    {
+        if (value.isPressed)
+        {
+            jumpPressedRemember = jumpPressedRememberTime;
+        }
+    }
 
     void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
     }
 
-    void OnJump(InputValue value)
+    void OnFire(InputValue value)
     {
-        if (!isGrounded()) { return; }
-        if(value.isPressed)
-        {
-            rb.velocity += new Vector2(0f, jumpStrength);
-        }
-    }
-
-    bool isGrounded()
-    {
-        return feetCollider.IsTouchingLayers(jumpableLayers);
+        Instantiate(bullet, gun.position, bullet.transform.rotation);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

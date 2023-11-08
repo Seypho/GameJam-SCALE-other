@@ -2795,37 +2795,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1150136083
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1150136084}
-  m_Layer: 6
-  m_Name: Pistol
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1150136084
+--- !u!4 &1150136084 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2239121096597655295, guid: bdae4874abf69224987a27dbe6434419, type: 3}
+  m_PrefabInstance: {fileID: 982296313022376479}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150136083}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.466, y: 0.225, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1946551849}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1204266210
 GameObject:
   m_ObjectHideFlags: 3
@@ -3051,14 +3025,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3465858441172519242, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3465858441172519242, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 2080064727
-      objectReference: {fileID: 0}
     - target: {fileID: 3728367228603357511, guid: bdae4874abf69224987a27dbe6434419, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3103,24 +3069,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 4189158365854002916, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: m_Layer
-      value: 6
+    - target: {fileID: 5441345355560859497, guid: bdae4874abf69224987a27dbe6434419, type: 3}
+      propertyPath: m_Name
+      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 8543761913458729925, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: jumpStrength
-      value: 20
-      objectReference: {fileID: 0}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1150136084}
     - target: {fileID: 8543761913458729925, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: jumpableLayers.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6986484065974746128, guid: c1aeda299b08f8b4690888ae9612acfb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3728367228603357511, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1150136084}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bdae4874abf69224987a27dbe6434419, type: 3}
 --- !u!1660057539 &9223372036854775807
