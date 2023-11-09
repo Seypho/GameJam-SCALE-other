@@ -109,6 +109,8 @@ MonoBehaviour:
   jumpableLayers:
     serializedVersion: 2
     m_Bits: 256
+  gun: {fileID: 2239121096597655295}
+  bullet: {fileID: 6986484065974746128, guid: c1aeda299b08f8b4690888ae9612acfb, type: 3}
 --- !u!50 &8126639056957403809
 Rigidbody2D:
   serializedVersion: 4
@@ -259,7 +261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2239121096597655295}
   m_Layer: 6
-  m_Name: Pistol
+  m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -2795,11 +2795,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!4 &1150136084 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2239121096597655295, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-  m_PrefabInstance: {fileID: 982296313022376479}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1204266210
 GameObject:
   m_ObjectHideFlags: 3
@@ -3069,18 +3064,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 5441345355560859497, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: m_Name
-      value: Gun
-      objectReference: {fileID: 0}
-    - target: {fileID: 8543761913458729925, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: gun
-      value: 
-      objectReference: {fileID: 1150136084}
-    - target: {fileID: 8543761913458729925, guid: bdae4874abf69224987a27dbe6434419, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 6986484065974746128, guid: c1aeda299b08f8b4690888ae9612acfb, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
