@@ -17,10 +17,13 @@ public class PlayerMovement : MonoBehaviour
     BoxCollider2D feetCollider;
     [SerializeField] Transform gun;
     [SerializeField] GameObject bullet;
+    SpriteRenderer playerSprite;
+    bool facingRight = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         feetCollider = GetComponent<BoxCollider2D>();
+        playerSprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -36,6 +39,22 @@ public class PlayerMovement : MonoBehaviour
     {
         float speed = rawInput.x * moveSpeed;
         rb.velocity = new Vector2(speed, rb.velocityY);
+        Flip();
+    }
+
+    void Flip()
+    {
+        
+        if (rawInput.x < 0 && facingRight)
+        {
+            facingRight = false;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
+        else if (rawInput.x > 0 && !facingRight)
+        {
+            facingRight = true;
+            transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
+        }
     }
     void Timers()
     {
@@ -74,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
 
     void OnFire(InputValue value)
     {
-        Instantiate(bullet, gun.position, bullet.transform.rotation);
+        Instantiate(bullet, gun.position, Quaternion.identity);
     }
 }
 
