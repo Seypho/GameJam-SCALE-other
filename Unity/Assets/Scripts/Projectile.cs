@@ -6,31 +6,41 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float bulletSpeed = 5f;
-    PlayerMovement player;
-    float xSpeed;
+    [SerializeField] float sizeIncreaseAmount = 0.1f;
+    Vector3 mousePosition;
+    Vector2 shootDirection;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        player = FindFirstObjectByType<PlayerMovement>();
-        xSpeed = player.transform.localScale.x * bulletSpeed;
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        shootDirection = (mousePosition - transform.position);
         Flip();
     }
 
     void Update()
     {
-        rb.velocity = new Vector2 (xSpeed, 0);
+        rb.velocity = new Vector2 (shootDirection.x, shootDirection.y).normalized * bulletSpeed;
     }
 
     void Flip()
     {
-        if(player.transform.localScale.x < 0)
-        {
-            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-        }
+        float angle = Mathf.Atan2(shootDirection.y, shootDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Object")
+        {
+            Transform collidedObjectTransform = collision.transform;
+            Vector3 newSize = collidedObjectTransform.localScale + new Vector3(sizeIncreaseAmount, sizeIncreaseAmount, 0f);
+            collidedObjectTransform.localScale = newSize;
+
+            Destroy(gameObject);
+        }
     }
 }

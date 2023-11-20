@@ -15,15 +15,11 @@ public class PlayerMovement : MonoBehaviour
     float jumpPressedRemember = 0f;
     [SerializeField] LayerMask jumpableLayers;
     BoxCollider2D feetCollider;
-    [SerializeField] Transform gun;
-    [SerializeField] GameObject bullet;
-    SpriteRenderer playerSprite;
     bool facingRight = true;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         feetCollider = GetComponent<BoxCollider2D>();
-        playerSprite = GetComponent<SpriteRenderer>();
     }
 
 
@@ -42,9 +38,10 @@ public class PlayerMovement : MonoBehaviour
         Flip();
     }
 
+
     void Flip()
     {
-        
+
         if (rawInput.x < 0 && facingRight)
         {
             facingRight = false;
@@ -90,13 +87,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rawInput = value.Get<Vector2>();
     }
-
-    void OnFire(InputValue value)
-    {
-        Instantiate(bullet, gun.position, Quaternion.identity);
-    }
 }
-
 
 
 
