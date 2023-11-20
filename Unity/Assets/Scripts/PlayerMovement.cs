@@ -11,15 +11,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float jumpStrength = 5f;
     [SerializeField] float jumpPressedRememberTime = 0.2f;
     [SerializeField] float isGroundedRememberTime = 0.2f;
+    [SerializeField] LayerMask jumpableLayers;
     float isGroundedRemember = 0f;
     float jumpPressedRemember = 0f;
-    [SerializeField] LayerMask jumpableLayers;
     BoxCollider2D feetCollider;
     bool facingRight = true;
+    Animator animator;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         feetCollider = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -29,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         Move();
         Jump();
         isGrounded();
+        updateAnimationState();
     }
 
     void Move()
@@ -86,6 +89,17 @@ public class PlayerMovement : MonoBehaviour
     void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
+    }
+    void updateAnimationState()
+    {
+        if (Mathf.Abs(rb.velocityX) > 0)
+        {
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
     }
 }
 
