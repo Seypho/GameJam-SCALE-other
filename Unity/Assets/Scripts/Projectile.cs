@@ -6,7 +6,6 @@ public class Projectile : MonoBehaviour
 {
     Rigidbody2D rb;
     [SerializeField] float bulletSpeed = 5f;
-    [SerializeField] float sizeIncreaseAmount = 0.1f;
     Vector3 mousePosition;
     Vector2 shootDirection;
     void Start()
@@ -36,10 +35,6 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.tag == "Object")
         {
-            Transform collidedObjectTransform = collision.transform;
-            Vector3 newSize = collidedObjectTransform.localScale + new Vector3(sizeIncreaseAmount, sizeIncreaseAmount, 0f);
-            collidedObjectTransform.localScale = newSize;
-
             Destroy(gameObject);
         }
     }
