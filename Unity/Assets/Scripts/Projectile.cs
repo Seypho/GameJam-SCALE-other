@@ -8,11 +8,13 @@ public class Projectile : MonoBehaviour
     [SerializeField] float bulletSpeed = 5f;
     Vector3 mousePosition;
     Vector2 shootDirection;
+    [SerializeField] GameObject playerTransform;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shootDirection = (mousePosition - transform.position);
+        Debug.Log(playerTransform.transform.localScale);
         Flip();
     }
 
@@ -32,10 +34,7 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
     private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Object")
-        {
-            Destroy(gameObject);
-        }
+    {   
+        Destroy(gameObject);
     }
 }

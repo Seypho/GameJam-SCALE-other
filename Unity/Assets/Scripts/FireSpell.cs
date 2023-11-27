@@ -13,11 +13,6 @@ public class FireSpell : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
-    void Update()
-    {
-        
-    }
-
     void OnFire(InputValue value)
     {
         if (value.isPressed)
