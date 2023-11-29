@@ -254,17 +254,6 @@
                 },
                 {
                     "name": "",
-                    "id": "cbc4b4ff-ccbf-42fa-8fe9-8a9fecda4498",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Fire",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "7464a7c3-843a-43ab-8f78-003083e6a3ec",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -278,6 +267,17 @@
                     "name": "",
                     "id": "37d079d4-cc4a-4526-8407-0abb9170e4cf",
                     "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a2eb0d1c-2747-4ef8-b1c0-223e5f90bf1f",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",

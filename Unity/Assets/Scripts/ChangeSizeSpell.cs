@@ -23,12 +23,12 @@ public class ChangeSizeSpell : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            TargetObject(sizeIncreaseAmount);
+            TargetObject(sizeIncreaseAmount * Time.deltaTime);
         }
 
         else if (Input.GetMouseButton(1))
         {
-            TargetObject(sizeDecreaseAmount);
+            TargetObject(sizeDecreaseAmount * Time.deltaTime);
         }
         else
         {
