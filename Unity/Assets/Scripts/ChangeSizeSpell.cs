@@ -11,16 +11,18 @@ public class ChangeSizeSpell : MonoBehaviour
     Animator animator;
     PlayerMovement playerMovement;
     Rigidbody2D rb;
+    SpellSelector spellSelector;
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
         rb = GetComponent<Rigidbody2D>();
+        spellSelector = GetComponent<SpellSelector>();
     }
     void Update()
     {
-
+        if (spellSelector.currentSpellIndex != 2) { return; }
         if (Input.GetMouseButton(0))
         {
             TargetObject(sizeIncreaseAmount * Time.deltaTime);
