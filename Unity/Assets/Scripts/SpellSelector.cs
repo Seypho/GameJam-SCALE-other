@@ -4,6 +4,7 @@ public class SpellSelector : MonoBehaviour
 {
     [SerializeField] int maxSpells = 3; // Set the maximum number of spells
     public int currentSpellIndex = 0;
+    [SerializeField] GameObject[] spells;
 
     void Update()
     {
@@ -27,6 +28,10 @@ public class SpellSelector : MonoBehaviour
     void ChangeSpell(int direction)
     {
         currentSpellIndex = (currentSpellIndex + direction + maxSpells) % maxSpells;
+        spells[0].SetActive(false);
+        spells[1].SetActive(false);
+        spells[2].SetActive(false);
+        spells[currentSpellIndex].SetActive(true);
         Debug.Log("Selected Spell: " + currentSpellIndex);
     }
 
@@ -35,6 +40,10 @@ public class SpellSelector : MonoBehaviour
         if (spellIndex >= 0 && spellIndex < maxSpells)
         {
             currentSpellIndex = spellIndex;
+            spells[0].SetActive(false);
+            spells[1].SetActive(false);
+            spells[2].SetActive(false);
+            spells[currentSpellIndex].SetActive(true);
             Debug.Log("Selected Spell: " + currentSpellIndex);
         }
     }
