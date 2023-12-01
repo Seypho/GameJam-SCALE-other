@@ -1106,9 +1106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Cave Crawler
-
-'
+  m_text: Tiny Big Wizard
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 676483c0985db2b428c010e7b4d3d793, type: 2}
   m_sharedMaterial: {fileID: -7452148338725640044, guid: 676483c0985db2b428c010e7b4d3d793, type: 2}
