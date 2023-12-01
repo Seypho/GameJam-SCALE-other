@@ -14,7 +14,6 @@ public class Projectile : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         shootDirection = (mousePosition - transform.position);
-        Debug.Log(playerTransform.transform.localScale);
         Flip();
     }
 

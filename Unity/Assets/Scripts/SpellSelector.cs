@@ -12,7 +12,7 @@ public class SpellSelector : MonoBehaviour
         float mouseWheel = Input.GetAxis("Mouse ScrollWheel");
         if (mouseWheel != 0f)
         {
-            ChangeSpell((int)Mathf.Sign(mouseWheel));
+            ChangeSpell((int)Mathf.Sign(-mouseWheel));
         }
 
         // Use number keys to select specific spells
